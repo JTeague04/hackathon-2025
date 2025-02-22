@@ -2,6 +2,7 @@ import pygame, random
 from src import FrameLimiter
 from src import Menus
 from src import Game
+from src import Sounds
 
 # season-to-taste variables ===============================
 
@@ -10,6 +11,9 @@ display_y = 1080
 fps = 60
 
 # =========================================================
+
+id = Sounds.loadSound("assets//sounds//random-mp3.wav")
+Sounds.playSound(id, 1)
 
 screen = pygame.display.set_mode((display_x, display_y))
 frame_limiter = FrameLimiter.FrameLimiter(fps)
