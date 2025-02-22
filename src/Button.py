@@ -26,8 +26,8 @@ class Button:
 
 
     def get_coord(self, prcnt, string):
-        if (0 <= prcnt <= 100) and (string is "x" or "y"):
-            if string is "x":
+        if (0 <= prcnt <= 100) and (string == "x" or "y"):
+            if string == "x":
                 coord_x = prcnt * main.display_x
                 return coord_x
             else :
