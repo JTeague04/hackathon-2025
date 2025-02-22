@@ -1,7 +1,6 @@
 import pygame
 from pathlib import Path
 
-import main
 
 
 class Button:
