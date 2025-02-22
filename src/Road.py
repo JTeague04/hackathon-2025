@@ -98,6 +98,11 @@ class Road:
         straight_section = self.rotate_by_90(self.rotate_by_90(STRAIGHT_ROAD))
         self.road[origin_x][origin_y] = straight_section
 
+    def get_roads(self):
+        first_normalisation = [i for road in self.road for i in road]
+        second_normalisation = [i for road in first_normalisation for i in road]
+        return second_normalisation
+
     # We need rules
     # A chunk is just a Xx8 set of sections
     # !IMPORTANT! instead of rotating road sections we can rotate the entire board for generation
