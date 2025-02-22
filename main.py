@@ -8,7 +8,7 @@ from src import Sounds
 
 display_x = 1920
 display_y = 1080
-fps = 60
+fps = 1
 
 # =========================================================
 

@@ -18,13 +18,14 @@ def driving(events, screen):
     x_abs = 0
     y_abs = 0
 
-    for ychunk in range(8):
-        for xchunk in range(8):
+    for imagey in range(8):
+        for imagex in range(8):
 
-            for chunkrow in range(8):
-                    for tile in range(8):
-                        pygame.draw.rect(screen, "black" if chunks[ychunk*64+xchunk*8+chunkrow][tile] == 1 else "green",
-                                         (x_abs+(tile*cell_size), y_abs+(chunkrow*cell_size), cell_size, cell_size))
+            for pixely in range(8):
+                    for pixelx in range(8):
+                        pygame.draw.rect(screen, "black" if chunks[imagey*64+imagex*8+pixely][pixelx] == 1 else "green",
+                                         (imagex*cell_size*8 + cell_size*pixelx,
+                                          cell_size*pixely +y_abs, cell_size, cell_size))
 
             x_abs += 8*cell_size
         y_abs += 8*cell_size
