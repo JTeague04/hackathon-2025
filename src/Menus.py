@@ -10,8 +10,10 @@ MAIN_MENU = (
 )
 OPTIONS_MENU = (
     Button.Button(50, 50, 50, 50, "assets//buttons//back.png", "assets//buttons//back.png"),
-    Button.Button(150, 100, 100, 100, "assets//buttons//volume_up.png", "assets//buttons//volume_up.png"),
-    Button.Button(300, 100, 100, 100, "assets//buttons//volume_down.png", "assets//buttons//volume_down.png")
+    Button.Button(50, 150, 100, 100, "assets//buttons//volume_up.png", "assets//buttons//volume_up.png"),
+    Button.Button(50, 300, 100, 100, "assets//buttons//volume_down.png", "assets//buttons//volume_down.png"),
+    Button.Button(50, 450, 100, 100, "assets//buttons//rand1.png", "assets//buttons//rand1.png")
+
 )
 
 class MAIN_MENU_ACTIONS:
