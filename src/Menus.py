@@ -2,15 +2,16 @@ import pygame
 from src import Button
 from src import Options
 
+LOGO = pygame.transform.scale( pygame.image.load("assets//logo.png"), (1200, 400) )
 MAIN_MENU = (
-    Button.Button(50, 50, 50, 50, "assets//buttons//exit.png"),
-    Button.Button(100, 100, 100, 100, "assets//buttons//start.png"),
-    Button.Button(100, 100, 100, 100, "assets//buttons//options.png")
+    Button.Button(25, 25, 100, 100, "assets//buttons//exit_normal.png", "assets//buttons//exit_depressed.png"),
+    Button.Button(300, 800, 250, 250, "assets//buttons//start_normal.png", "assets//buttons//start_depressed.png"),
+    Button.Button(600, 800, 250, 250, "assets//buttons//options_normal.png", "assets//buttons//options_depressed.png")
 )
 OPTIONS_MENU = (
-    Button.Button(50, 50, 50, 50, "assets//buttons//back.png"),
-    Button.Button(150, 100, 100, 100, "assets//buttons//volume_up.png"),
-    Button.Button(300, 100, 100, 100, "assets//buttons//volume_down.png")
+    Button.Button(50, 50, 50, 50, "assets//buttons//back.png", "assets//buttons//back.png"),
+    Button.Button(150, 100, 100, 100, "assets//buttons//volume_up.png", "assets//buttons//volume_up.png"),
+    Button.Button(300, 100, 100, 100, "assets//buttons//volume_down.png", "assets//buttons//volume_down.png")
 )
 
 class MAIN_MENU_ACTIONS:
@@ -36,6 +37,8 @@ def main_menu_actions(events, screen):
     for button in MAIN_MENU:
         screen.blit(button.get_image(), (button.get_x(), button.get_y()) )
 
+    screen.blit(LOGO, (360, 100))
+
     return MAIN_MENU_ACTIONS.NONE
 
 def options_menu_actions(events, screen):
@@ -59,5 +62,8 @@ def options_menu_actions(events, screen):
                         if Options.MASTER_VOLUME != 0:
                             Options.MASTER_VOLUME -= 1
                             print(Options.MASTER_VOLUME)
+
+    for button in OPTIONS_MENU:
+        screen.blit(button.get_image(), (button.get_x(), button.get_y()) )
 
     return OPTIONS_MENU_ACTIONS.NONE

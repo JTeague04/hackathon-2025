@@ -22,8 +22,23 @@ running = True
 while running:
 
     match game_state:
-        case 0: Menus.main_menu_actions(inputs, screen)
-        case 1: Menus.options_menu_actions(inputs, screen)
+
+        case 0:
+            result = Menus.main_menu_actions(inputs, screen)
+            if result == Menus.MAIN_MENU_ACTIONS.EXIT:
+                running = False
+            elif result == Menus.MAIN_MENU_ACTIONS.GO_TO_OPTIONS:
+                game_state = 1
+                pygame.draw.rect(screen, "black", (0, 0, display_x, display_y))
+            elif result == Menus.MAIN_MENU_ACTIONS.START:
+                game_state = 2
+
+        case 1:
+            result = Menus.options_menu_actions(inputs, screen)
+            if result == Menus.OPTIONS_MENU_ACTIONS.BACK:
+                game_state = 0
+                pygame.draw.rect(screen, "black", (0, 0, display_x, display_y))
+
         case 2: Game.driving(inputs, screen)
         case 3: Game.quiz(inputs, screen)
 
@@ -32,7 +47,7 @@ while running:
 
     inputs = []
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT or not running:
             pygame.quit()
             running = False
         else:
