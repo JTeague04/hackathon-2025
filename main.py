@@ -36,6 +36,7 @@ while running:
                 pygame.draw.rect(screen, "black", (0, 0, display_x, display_y))
             elif result == Menus.MAIN_MENU_ACTIONS.START:
                 game_state = 2
+                pygame.draw.rect(screen, "black", (0, 0, display_x, display_y))
 
         case 1:
             result = Menus.options_menu_actions(inputs, screen)
@@ -43,7 +44,12 @@ while running:
                 game_state = 0
                 pygame.draw.rect(screen, "black", (0, 0, display_x, display_y))
 
-        case 2: Game.driving(inputs, screen)
+        case 2:
+            result = Game.driving(inputs, screen)
+            if result == Game.DRIVING_ACTIONS.RETURN_TO_MAIN_MENU:
+                game_state = 0
+                pygame.draw.rect(screen, "black", (0, 0, display_x, display_y))
+
         case 3: Game.quiz(inputs, screen)
 
     pygame.display.flip()
