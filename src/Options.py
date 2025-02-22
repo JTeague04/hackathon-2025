@@ -1,2 +1,3 @@
 
 MASTER_VOLUME = 5
+CAR_MOVEMENT_DELAY = 100 # in milliseconds
