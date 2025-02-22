@@ -17,10 +17,10 @@ class Button:
         if not Path(image_filepath).is_file():
             image_filepath = "assets//placeholder.png"
         if not Path(image_filepath_pressed).is_file():
-            image_filepath = "assets//placeholder.png"
+            image_filepath_pressed = "assets//placeholder.png"
 
-        self.__image = pygame.image.load(image_filepath)
-        self.__pressed_image = pygame.image.load(image_filepath_pressed)
+        self.__image = pygame.transform.scale( pygame.image.load(image_filepath), (sx, sy) )
+        self.__pressed_image = pygame.transform.scale( pygame.image.load(image_filepath_pressed), (sx, sy) ) # TODO Make the button scaling proper
 
     def get_image(self):
         if self.__pressed:
